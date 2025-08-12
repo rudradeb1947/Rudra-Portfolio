@@ -5,7 +5,7 @@
 
 ## 🚀 About Me
 <p>
-I'm a 7th-semester CSE engineering student with hands-on experience in 
+I'm a CSE engineering graduate student with hands-on experience in 
 Python, Machine Learning, Web Development, and Data Analytics.  
 I love creating impactful solutions that combine great UI with powerful backend logic.
 </p>
@@ -31,29 +31,29 @@ I love creating impactful solutions that combine great UI with powerful backend 
 ### 🏥 Medical Data Classification using Explainable AI
 - **Tech:** Python, Scikit-Learn, LIME, Random Forest, ADASYN  
 - **Highlight:** Achieved **92% accuracy** in classifying medical cases with interpretability  
-- **Repo:** [View Project](https://github.com/yourusername/medical-data-classification)
+- **Repo:** [View Project](https://github.com/rudradeb1947/Lymphography_Data_Classification_Using_XAI)
 
 ### 📈 Personal Finance Management App
 - **Tech:** Python, SQLite  
 - **Highlight:** Tracks income & expenses, generates detailed financial reports  
-- **Repo:** [View Project](https://github.com/yourusername/personal-finance-app)
+- **Repo:** [View Project](https://github.com/rudradeb1947/Personal_Finance_App)
 
-### 🛍 E-Commerce Website
-- **Tech:** Django, Bootstrap  
-- **Highlight:** Stylish UI inspired by online shoe store templates  
-- **Repo:** [View Project](https://github.com/yourusername/e-commerce-site)
+### 🛍 Emotion Detection Model
+- **Tech:** NLP, Python, Scikit-Learn
+- **Highlight:** Built an NLP-based text classification model using TF-IDF and Logistic Regression for emotion prediction from textual data.
+- **Repo:** [View Project](https://github.com/rudradeb1947/Emotion-Detection-Model)
 
 ---
 
 ## 📫 Connect with Me
 <p>
-<a href="https://linkedin.com/in/yourusername" target="_blank">
+<a href="https://www.linkedin.com/in/rudradebnandi1947/" target="_blank">
 <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
-<a href="https://github.com/yourusername" target="_blank">
+<a href="https://github.com/rudradeb1947" target="_blank">
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
 </a>
-<a href="mailto:youremail@example.com">
+<a href="mailto:rudradebnandi490@gmail.com">
 <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
 </a>
 </p>
