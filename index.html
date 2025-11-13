@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,46 +9,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* GitHub Dark Background */
-            color: #f1f5f9; /* Slate 100 */
-            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            background-color: #0d1117;
+            /* GitHub Dark Background */
+            color: #f1f5f9;
+            /* Slate 100 */
+            overflow-x: hidden;
+            /* Prevent horizontal scroll due to animations */
         }
 
         /* Custom gradient for buttons and accents */
         .btn-primary {
-            background-image: linear-gradient(to right, #22d3ee, #0ea5e9); /* Cyan 400 to Blue 500 */
+            background-image: linear-gradient(to right, #22d3ee, #0ea5e9);
+            /* Cyan 400 to Blue 500 */
             transition: all 0.3s ease-in-out;
         }
+
         .btn-primary:hover {
             background-image: linear-gradient(to right, #0ea5e9, #22d3ee);
-            box-shadow: 0 8px 25px rgba(34, 211, 238, 0.4); /* Cyan shadow */
-            transform: translateY(-3px); /* Slight lift */
+            box-shadow: 0 8px 25px rgba(34, 211, 238, 0.4);
+            /* Cyan shadow */
+            transform: translateY(-3px);
+            /* Slight lift */
         }
 
         /* Custom styles for the blinking cursor */
         .blinking-cursor {
-            font-weight: 300; /* Lighter weight for subtle blink */
+            font-weight: 300;
+            /* Lighter weight for subtle blink */
             opacity: 1;
-            animation: blink-fade 1.2s step-end infinite alternate; /* Fade in/out */
+            animation: blink-fade 1.2s step-end infinite alternate;
+            /* Fade in/out */
         }
 
         @keyframes blink-fade {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         /* Sticky Header Shrink */
         .header-scrolled {
-            padding-top: 0.75rem; /* py-3 */
-            padding-bottom: 0.75rem; /* py-3 */
-            background-color: rgba(13, 17, 23, 0.95); /* Slightly darker with more opacity */
+            padding-top: 0.75rem;
+            /* py-3 */
+            padding-bottom: 0.75rem;
+            /* py-3 */
+            background-color: rgba(13, 17, 23, 0.95);
+            /* Slightly darker with more opacity */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
         .header-scrolled .text-3xl {
-            font-size: 2rem; /* text-2xl */
+            font-size: 2rem;
+            /* text-2xl */
         }
 
         /* Scroll Reveal Animations */
@@ -56,6 +78,7 @@
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
         .scroll-reveal.visible {
             opacity: 1;
             transform: translateY(0);
@@ -64,51 +87,66 @@
         /* Parallax Effect for About Image (Advanced CSS) */
         .parallax-container {
             overflow: hidden;
-            border-radius: 0.5rem; /* rounded-lg */
+            border-radius: 0.5rem;
+            /* rounded-lg */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
+
         .parallax-image {
             transform: translateY(0);
-            transition: transform 0.2s ease-out; /* Smooth movement */
+            transition: transform 0.2s ease-out;
+            /* Smooth movement */
         }
 
         /* Floating Label for Contact Form */
         .form-group {
             position: relative;
         }
+
         .form-group label {
             position: absolute;
             top: 1rem;
             left: 1rem;
-            color: #9ca3af; /* Gray 400 */
+            color: #9ca3af;
+            /* Gray 400 */
             pointer-events: none;
             transition: all 0.2s ease-out;
-            background-color: #1f2937; /* Match input background */
+            background-color: #1f2937;
+            /* Match input background */
             padding: 0 0.25rem;
             border-radius: 0.25rem;
         }
-        .form-group input:focus + label,
-        .form-group input:not(:placeholder-shown) + label,
-        .form-group textarea:focus + label,
-        .form-group textarea:not(:placeholder-shown) + label {
-            top: -0.75rem; /* Move up */
-            font-size: 0.875rem; /* text-sm */
-            color: #22d3ee; /* Cyan 400 */
+
+        .form-group input:focus+label,
+        .form-group input:not(:placeholder-shown)+label,
+        .form-group textarea:focus+label,
+        .form-group textarea:not(:placeholder-shown)+label {
+            top: -0.75rem;
+            /* Move up */
+            font-size: 0.875rem;
+            /* text-sm */
+            color: #22d3ee;
+            /* Cyan 400 */
         }
+
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: transparent; /* Hide default placeholder */
+            color: transparent;
+            /* Hide default placeholder */
         }
 
         /* Custom Scrollbar (Webkit browsers) */
         ::-webkit-scrollbar {
             width: 10px;
-            background-color: #1a202c; /* Darker background */
+            background-color: #1a202c;
+            /* Darker background */
         }
+
         ::-webkit-scrollbar-thumb {
             background-image: linear-gradient(to bottom, #22d3ee, #0ea5e9);
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background-image: linear-gradient(to bottom, #0ea5e9, #22d3ee);
         }
@@ -120,7 +158,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(13, 17, 23, 0.8); /* Dark overlay */
+            background: rgba(13, 17, 23, 0.8);
+            /* Dark overlay */
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
             display: flex;
@@ -130,40 +169,51 @@
             padding: 1.5rem;
             text-align: center;
         }
+
         .project-card:hover .project-overlay {
             opacity: 1;
         }
+
         .project-card .project-overlay h3,
         .project-card .project-overlay p,
         .project-card .project-overlay .project-links {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            transition-delay: 0.1s; /* Stagger effect */
+            transition-delay: 0.1s;
+            /* Stagger effect */
         }
+
         .project-card:hover .project-overlay h3,
         .project-card:hover .project-overlay p,
         .project-card:hover .project-overlay .project-links {
             opacity: 1;
             transform: translateY(0);
         }
+
         .project-card:hover .project-overlay p {
             transition-delay: 0.2s;
         }
+
         .project-card:hover .project-overlay .project-links {
             transition-delay: 0.3s;
         }
 
         /* Animated Social Icons */
         .social-icon-wrapper {
-            display: inline-flex; /* To contain the hover effect */
+            display: inline-flex;
+            /* To contain the hover effect */
         }
+
         .social-icon-wrapper .social-icon {
             transition: transform 0.3s ease-out, color 0.3s ease-out;
         }
+
         .social-icon-wrapper:hover .social-icon {
-            transform: translateY(-5px) scale(1.1); /* Pop up and slightly enlarge */
-            color: #22d3ee; /* Change color on hover */
+            transform: translateY(-5px) scale(1.1);
+            /* Pop up and slightly enlarge */
+            color: #22d3ee;
+            /* Change color on hover */
         }
 
         /* Hamburger animation */
@@ -176,6 +226,7 @@
             cursor: pointer;
             z-index: 10;
         }
+
         .hamburger .bar {
             width: 100%;
             height: 3px;
@@ -183,28 +234,38 @@
             transition: all 0.3s ease-in-out;
             border-radius: 2px;
         }
+
         .hamburger.open .bar:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
+
         .hamburger.open .bar:nth-child(2) {
             opacity: 0;
         }
+
         .hamburger.open .bar:nth-child(3) {
             transform: translateY(-9px) rotate(-45deg);
         }
-
     </style>
 </head>
+
 <body class="bg-[#0d1117] text-gray-100">
 
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-[#0d1117] bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-300 py-4">
+    <header id="main-header"
+        class="fixed top-0 left-0 w-full z-50 bg-[#0d1117] bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-300 py-4">
         <nav class="container mx-auto px-6 flex items-center justify-between">
-            <a href="#hero" class="text-3xl font-extrabold text-[#22d3ee] hover:text-[#0ea5e9] transition-colors duration-300">Rudradeb Nandi</a>
+            <a href="#hero"
+                class="text-3xl font-extrabold text-[#22d3ee] hover:text-[#0ea5e9] transition-colors duration-300">Rudradeb
+                Nandi</a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="nav-link hover:text-[#22d3ee] transition-colors duration-300" data-section="about">About</a>
-                <a href="#skills" class="nav-link hover:text-[#22d3ee] transition-colors duration-300" data-section="skills">Skills</a>
-                <a href="#projects" class="nav-link hover:text-[#22d3ee] transition-colors duration-300" data-section="projects">Projects</a>
-                <a href="#contact" class="nav-link hover:text-[#22d3ee] transition-colors duration-300" data-section="contact">Contact</a>
+                <a href="#about" class="nav-link hover:text-[#22d3ee] transition-colors duration-300"
+                    data-section="about">About</a>
+                <a href="#skills" class="nav-link hover:text-[#22d3ee] transition-colors duration-300"
+                    data-section="skills">Skills</a>
+                <a href="#projects" class="nav-link hover:text-[#22d3ee] transition-colors duration-300"
+                    data-section="projects">Projects</a>
+                <a href="#contact" class="nav-link hover:text-[#22d3ee] transition-colors duration-300"
+                    data-section="contact">Contact</a>
             </div>
             <button id="menu-btn" class="hamburger md:hidden focus:outline-none" aria-label="Toggle navigation menu">
                 <span class="bar"></span>
@@ -213,55 +274,74 @@
             </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-[#0d1117] w-full py-4 text-center border-t border-gray-800">
-            <a href="#about" class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300" data-section="about">About</a>
-            <a href="#skills" class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300" data-section="skills">Skills</a>
-            <a href="#projects" class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300" data-section="projects">Projects</a>
-            <a href="#contact" class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300" data-section="contact">Contact</a>
+            <a href="#about" class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300"
+                data-section="about">About</a>
+            <a href="#skills" class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300"
+                data-section="skills">Skills</a>
+            <a href="#projects"
+                class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300"
+                data-section="projects">Projects</a>
+            <a href="#contact" class="block py-3 hover:bg-[#1f2937] hover:text-[#22d3ee] transition-colors duration-300"
+                data-section="contact">Contact</a>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="min-h-screen flex items-center justify-center p-6 text-center relative overflow-hidden">
+        <section id="hero"
+            class="min-h-screen flex items-center justify-center p-6 text-center relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-[#0d1117] via-[#0d1117] to-[#1f2937] opacity-70"></div>
             <div class="absolute inset-0 radial-gradient-mask"></div>
             <div class="max-w-5xl space-y-15 z-10 scroll-reveal">
                 <div class="relative w-64 h-64 mx-auto flex items-center justify-center group">
                     <!-- Gradient ring -->
-                    <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#22d3ee] via-[#0ea5e9] to-[#38bdf8] p-2"></div>
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#22d3ee] via-[#0ea5e9] to-[#38bdf8] p-2">
+                    </div>
                     <!-- White border for separation -->
                     <div class="absolute inset-2 rounded-full bg-white"></div>
                     <!-- Profile image -->
                     <img src="Photo2.png" alt="Your Photo"
-                         class="relative w-56 h-56 rounded-full object-cover shadow-2xl transition-all duration-500 transform group-hover:scale-105 group-hover:shadow-[0_0_80px_rgba(34,211,238,0.5)]" />
+                        class="relative w-56 h-56 rounded-full object-cover shadow-2xl transition-all duration-500 transform group-hover:scale-105 group-hover:shadow-[0_0_80px_rgba(34,211,238,0.5)]" />
                     <!-- Subtle overlay on hover -->
-                    <div class="absolute inset-0 rounded-full bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    <div
+                        class="absolute inset-0 rounded-full bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                    </div>
                 </div>
-                
+
                 <h1 class="text-6xl md:text-7xl font-extrabold text-white leading-tight mt-6">
                     Hi, I'm <span class="text-[#22d3ee]">Rudradeb Nandi</span>.
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto h-12 flex items-center justify-center">
-                    A passionate <span class="text-[#22d3ee] font-semibold ml-2" id="typewriter-text"></span><span class="blinking-cursor text-[#22d3ee]">|</span>
+                    A passionate <span class="text-[#22d3ee] font-semibold ml-2" id="typewriter-text"></span><span
+                        class="blinking-cursor text-[#22d3ee]">|</span>
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
-                    <a href="#projects" class="inline-block px-10 py-4 btn-primary text-gray-900 font-semibold text-lg rounded-full shadow-xl">
-                        View My Work <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                <div
+                    class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+                    <a href="#projects"
+                        class="inline-block px-10 py-4 btn-primary text-gray-900 font-semibold text-lg rounded-full shadow-xl">
+                        View My Work <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <a href="Rudradeb_Resume.pdf" target="_blank" class="inline-block px-10 py-4 bg-gray-700 text-white font-semibold text-lg rounded-full shadow-xl transition-all duration-300 hover:bg-gray-800 hover:scale-105 hover:shadow-lg">
+                    <a href="Rudradeb_Resume.pdf" target="_blank"
+                        class="inline-block px-10 py-4 bg-gray-700 text-white font-semibold text-lg rounded-full shadow-xl transition-all duration-300 hover:bg-gray-800 hover:scale-105 hover:shadow-lg">
                         View Resume <i class="fas fa-file-alt ml-2 group-hover:translate-y-1 transition-transform"></i>
                     </a>
                 </div>
                 <div class="flex justify-center space-x-6 mt-8">
-                    <a href="https://www.linkedin.com/in/rudradebnandi1947/" target="_blank" class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
+                    <a href="https://www.linkedin.com/in/rudradebnandi1947/" target="_blank"
+                        class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
                         <i class="fab fa-linkedin-in text-3xl social-icon"></i>
                     </a>
-                    <a href="https://github.com/rudradeb1947" target="_blank" class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
+                    <a href="https://github.com/rudradeb1947" target="_blank"
+                        class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
                         <i class="fab fa-github text-3xl social-icon"></i>
                     </a>
-                    <a href="https://x.com/nandi_rudradeb" target="_blank" class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
+                    <a href="https://x.com/nandi_rudradeb" target="_blank"
+                        class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
                         <i class="fab fa-twitter text-3xl social-icon"></i>
                     </a>
-                    <a href="mailto:rudradebnandi490@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Rudradeb" target="_blank" class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
+                    <a href="mailto:rudradebnandi490@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Rudradeb"
+                        target="_blank" class="social-icon-wrapper text-gray-400 hover:text-[#22d3ee]">
                         <i class="fas fa-envelope text-3xl social-icon"></i>
                     </a>
                 </div>
@@ -274,22 +354,35 @@
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-16">
                     <div class="md:w-1/2 order-2 md:order-1 scroll-reveal">
                         <p class="text-lg text-gray-300 leading-relaxed mb-4">
-                            Hello! I'm Rudradeb Nandi, a passionate <span class="text-[#22d3ee] font-medium">Software and Machine Learning Engineer</span> with a drive for building intelligent, data-driven, and user-centric applications. My journey in tech began with a fascination for how algorithms work, evolving into a mission to craft impactful solutions through code and data.
+                            Hello! I'm Rudradeb Nandi, a passionate <span class="text-[#22d3ee] font-medium">Software
+                                and Machine Learning Engineer</span> with a drive for building intelligent, data-driven,
+                            and user-centric applications. My journey in tech began with a fascination for how
+                            algorithms work, evolving into a mission to craft impactful solutions through code and data.
                         </p>
                         <p class="text-lg text-gray-300 leading-relaxed mb-4">
-                            I specialize in <span class="text-[#22d3ee] font-medium">Python development, machine learning</span> and <span class="text-[#22d3ee] font-medium">full-stack web applications</span> using tools like Scikit-Learn, SQL, Django, Flask, and PostgreSQL to build smart and scalable systems. One of my recent projects involved developing a robust e-commerce platform with Django and PostgreSQL, which improved <span class="text-[#22d3ee] font-medium">backend performance by 40%</span>  and streamlined the checkout experience.
+                            I specialize in <span class="text-[#22d3ee] font-medium">Python development, machine
+                                learning</span> and <span class="text-[#22d3ee] font-medium">full-stack web
+                                applications</span> using tools like Scikit-Learn, SQL, Django, Flask, and PostgreSQL to
+                            build smart and scalable systems. One of my recent projects involved developing a robust
+                            e-commerce platform with Django and PostgreSQL, which improved <span
+                                class="text-[#22d3ee] font-medium">backend performance by 40%</span> and streamlined the
+                            checkout experience.
                         </p>
                         <p class="text-lg text-gray-300 leading-relaxed mb-4">
-                            I’ve also built a CLI-based Financial Management System in Python that increased budgeting <span class="text-[#22d3ee] font-medium">accuracy by over 50%</span> for test users, and a Lymphography prediction using Explainable AI (LIME) to enhance transparency in predictions.
+                            I’ve also built a CLI-based Financial Management System in Python that increased budgeting
+                            <span class="text-[#22d3ee] font-medium">accuracy by over 50%</span> for test users, and a
+                            Lymphography prediction using Explainable AI (LIME) to enhance transparency in predictions.
                         </p>
                         <p class="text-lg text-gray-300 leading-relaxed">
-                            When I’m not coding, you’ll find me experimenting with new ML models, working on open-source ideas, or diving into a good book. I'm excited about collaborating on innovative projects and bringing smart systems to life!
+                            When I’m not coding, you’ll find me experimenting with new ML models, working on open-source
+                            ideas, or diving into a good book. I'm excited about collaborating on innovative projects
+                            and bringing smart systems to life!
                         </p>
                     </div>
                     <div class="md:w-1/3 order-1 md:order-2 parallax-container scroll-reveal">
-                        <img src="Rudra.jpg" alt="About Rudradeb Nandi" 
-                             class="w-[500px] h-[500px] object-cover parallax-image" 
-                             data-parallax-speed="0.05"> </div>
+                        <img src="Rudra.jpg" alt="About Rudradeb Nandi"
+                            class="w-[500px] h-[500px] object-cover parallax-image" data-parallax-speed="0.05">
+                    </div>
                 </div>
             </div>
         </section>
@@ -298,82 +391,131 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-5xl md:text-6xl font-bold text-center mb-12 text-white">My Skills</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-8">
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fab fa-python text-6xl text-[#3b82f6] mb-4 group-hover:text-white transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#3b82f6] transition-colors">Python</span>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fab fa-python text-6xl text-[#3b82f6] mb-4 group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#3b82f6] transition-colors">Python</span>
                     </div>
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fas fa-code text-6xl text-white mb-4 group-hover:text-[#22c55e] transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#22c55e] transition-colors">Django</span>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fas fa-code text-6xl text-white mb-4 group-hover:text-[#22c55e] transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#22c55e] transition-colors">Django</span>
                     </div>
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fas fa-database text-6xl text-[#a78bfa] mb-4 group-hover:text-white transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#a78bfa] transition-colors">SQL</span>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fas fa-database text-6xl text-[#a78bfa] mb-4 group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#a78bfa] transition-colors">SQL</span>
                     </div>
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <img src="pandas.png" alt="Pandas Logo" class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
-                        <span class="text-xl font-medium text-white group-hover:text-[#f89820] transition-colors">Pandas</span>
-                    </div>
-
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <img src="Numpy.png" alt="NumPy Logo" class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
-                        <span class="text-xl font-medium text-white group-hover:text-[#4B8BBE] transition-colors">NumPy</span>
-                    </div>
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <img src="Scikit_learn.png" alt="Scikit-learn Logo" class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
-                        <span class="text-xl font-medium text-white group-hover:text-[#f7931e] transition-colors">Scikit-learn</span>
-                    </div>
-
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <img src="Matplotlib.png" alt="Matplotlib Logo" class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
-                        <span class="text-xl font-medium text-white group-hover:text-[#11557c] transition-colors">Matplotlib</span>
-                    </div>
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <img src="seaborn.png" alt="Seaborn Logo" class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
-                        <span class="text-xl font-medium text-white group-hover:text-[#268bd2] transition-colors">Seaborn</span>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <img src="pandas.png" alt="Pandas Logo"
+                            class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#f89820] transition-colors">Pandas</span>
                     </div>
 
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-  <img src="Tensorflow.png" alt="TensorFlow Logo" class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
-  <span class="text-xl font-medium text-white group-hover:text-[#FF6F00] transition-colors">TensorFlow</span>
-</div>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <img src="Numpy.png" alt="NumPy Logo"
+                            class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#4B8BBE] transition-colors">NumPy</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <img src="Scikit_learn.png" alt="Scikit-learn Logo"
+                            class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#f7931e] transition-colors">Scikit-learn</span>
+                    </div>
 
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <img src="Matplotlib.png" alt="Matplotlib Logo"
+                            class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#11557c] transition-colors">Matplotlib</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <img src="seaborn.png" alt="Seaborn Logo"
+                            class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#268bd2] transition-colors">Seaborn</span>
+                    </div>
 
-
-
-
-
-
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fab fa-java text-6xl text-[#f89820] mb-4 group-hover:text-white transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#f89820] transition-colors">Java</span>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <img src="Tensorflow.png" alt="TensorFlow Logo"
+                            class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#FF6F00] transition-colors">TensorFlow</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <img src="jquery.png" alt="Jquery Logo"
+                            class="w-16 h-16 mb-4 group-hover:opacity-80 transition-opacity">
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#FF6F00] transition-colors">JQuery</span>
                     </div>
                     
 
 
 
 
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fab fa-js-square text-6xl text-[#fde047] mb-4 group-hover:text-white transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#fde047] transition-colors">JavaScript</span>
+
+
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fab fa-java text-6xl text-[#f89820] mb-4 group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#f89820] transition-colors">Java</span>
                     </div>
-                    
-                    
-                    
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fab fa-git-alt text-6xl text-[#f87171] mb-4 group-hover:text-white transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#f87171] transition-colors">Git</span>
+
+
+
+
+
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fab fa-js-square text-6xl text-[#fde047] mb-4 group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#fde047] transition-colors">JavaScript</span>
                     </div>
-                    
-                    
-                    
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fab fa-html5 text-6xl text-[#ef4444] mb-4 group-hover:text-white transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#ef4444] transition-colors">HTML5</span>
+
+
+
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fab fa-git-alt text-6xl text-[#f87171] mb-4 group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#f87171] transition-colors">Git</span>
                     </div>
-                    <div class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                        <i class="fab fa-css3-alt text-6xl text-[#22d3ee] mb-4 group-hover:text-white transition-colors"></i>
-                        <span class="text-xl font-medium text-white group-hover:text-[#22d3ee] transition-colors">CSS3</span>
+
+
+
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fab fa-html5 text-6xl text-[#ef4444] mb-4 group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#ef4444] transition-colors">HTML5</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center p-6 bg-[#1f2937] rounded-lg shadow-xl hover:bg-[#374151] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                        <i
+                            class="fab fa-css3-alt text-6xl text-[#22d3ee] mb-4 group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xl font-medium text-white group-hover:text-[#22d3ee] transition-colors">CSS3</span>
                     </div>
                 </div>
             </div>
@@ -383,84 +525,160 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-5xl md:text-6xl font-bold text-center mb-12 text-white">My Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div class="bg-[#0d1117] rounded-lg shadow-xl overflow-hidden transition-all duration-300 group relative project-card">
-                        <img src="LIME_RF.png" alt="Project 1" class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="bg-[#0d1117] rounded-lg shadow-xl overflow-hidden transition-all duration-300 group relative project-card">
+                        <img src="LIME_RF.png" alt="Project 1"
+                            class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
                         <div class="p-6 relative z-10">
                             <h3 class="text-2xl font-bold mb-2 text-white">Lymphography Prediction Using XAI</h3>
-                            <p class="text-gray-300 mb-4 text-sm">Classified lymphography data using Random Forest with preprocessing (scaling, ADASYN). Evaluated with cross-validation and metrics (Accuracy, F1, MCC, Kappa). Used LIME for local model explainability.</p>
+                            <p class="text-gray-300 mb-4 text-sm">Classified lymphography data using Random Forest with
+                                preprocessing (scaling, ADASYN). Evaluated with cross-validation and metrics (Accuracy,
+                                F1, MCC, Kappa). Used LIME for local model explainability.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Python</span>
-                                <span class="bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-full">XAI</span>
-                                <span class="bg-yellow-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Pandas</span>
-                                <span class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Scikit-Learn</span>
+                                <span
+                                    class="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Python</span>
+                                <span
+                                    class="bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-full">XAI</span>
+                                <span
+                                    class="bg-yellow-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Pandas</span>
+                                <span
+                                    class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Scikit-Learn</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <a href="https://github.com/rudradeb1947/Lymphography_Data_Classification_Using_XAI" target="_blank" class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                <a href="https://github.com/rudradeb1947/Lymphography_Data_Classification_Using_XAI"
+                                    target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
                                     <i class="fas fa-external-link-alt mr-2 text-sm"></i> Live Demo
                                 </a>
-                                <a href="https://github.com/rudradeb1947/Lymphography_Data_Classification_Using_XAI" target="_blank" class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                <a href="https://github.com/rudradeb1947/Lymphography_Data_Classification_Using_XAI"
+                                    target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
                                     <i class="fab fa-github mr-2 text-sm"></i> GitHub
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-[#0d1117] rounded-lg shadow-xl overflow-hidden transition-all duration-300 group relative project-card">
-                        <img src="Finance Tracker.png" alt="Project 2" class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="bg-[#0d1117] rounded-lg shadow-xl overflow-hidden transition-all duration-300 group relative project-card">
+                        <img src="ecommerce.png" alt="Project 2"
+                            class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
                         <div class="p-6 relative z-10">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Personal Finance App</h3>
-                            <p class="text-gray-300 mb-4 text-sm">A Python-based CLA(Command Line Application) personal finance tracker that helps users manage income, expenses, and budgets. Features include transaction logging, budget monitoring, report generation, and unit testing. Data is stored locally using SQLite for easy access and portability.</p>
+                            <h3 class="text-2xl font-bold mb-2 text-white">Ecommerce Platform</h3>
+                            <p class="text-gray-300 mb-4 text-sm">Built a full-stack e-commerce platform with secure authentication, product management, and real-time order tracking - achieving 30% faster page load times and 20% improvement in database query performance through backend optimization and efficient API design.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Python</span>
-                                <span class="bg-pink-600 text-white text-xs font-semibold px-2 py-1 rounded-full">SQLite</span>
-                                <span class="bg-teal-600 text-white text-xs font-semibold px-2 py-1 rounded-full">unittest</span>
-                                <span class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Git</span>
+                                <span
+                                    class="bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Python</span>
+                                <span
+                                    class="bg-pink-600 text-white text-xs font-semibold px-2 py-1 rounded-full">PostgreSQL</span>
+                                <span
+                                    class="bg-teal-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Django</span>
+                                <span
+                                    class="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Bootstrap</span>
+                                <span
+                                    class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Git</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <a href="https://github.com/rudradeb1947/Personal_Finance_App" target="_blank" class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                <a href="https://github.com/rudradeb1947/django-ecommerce-platform" target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
                                     <i class="fas fa-external-link-alt mr-2 text-sm"></i> Live Demo
                                 </a>
-                                <a href="https://github.com/rudradeb1947/Personal_Finance_App" target="_blank" class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                <a href="https://github.com/rudradeb1947/django-ecommerce-platform" target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
                                     <i class="fab fa-github mr-2 text-sm"></i> GitHub
                                 </a>
                             </div>
                         </div>
-                         <div class="project">
+                        <div class="project">
                             <h3 class="text-3xl  mb-3"></h3>
                             <p class="text-gray-200 text-lg mb-4"></p>
                             <div class="project-links flex space-x-6">
-                                
+
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-[#0d1117] rounded-lg shadow-xl overflow-hidden transition-all duration-300 group relative project-card">
-                        <img src="Emotion detection model.png" alt="Project 3" class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="bg-[#0d1117] rounded-lg shadow-xl overflow-hidden transition-all duration-300 group relative project-card">
+                        <img src="Finance Tracker.png" alt="Project 2"
+                            class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
                         <div class="p-6 relative z-10">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Emotion Detection Model</h3>
-                            <p class="text-gray-300 mb-4 text-sm">Built an NLP-based text classification model using TF-IDF and Logistic Regression for emotion prediction from textual data. Applied text analytics techniques for preprocessing and deployed a local demo with real-time user input, without external APIs.</p>
+                            <h3 class="text-2xl font-bold mb-2 text-white">Personal Finance App</h3>
+                            <p class="text-gray-300 mb-4 text-sm">A Python-based CLA(Command Line Application) personal
+                                finance tracker that helps users manage income, expenses, and budgets. Features include
+                                transaction logging, budget monitoring, report generation, and unit testing. Data is
+                                stored locally using SQLite for easy access and portability.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-indigo-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Python</span>
-                                <span class="bg-yellow-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Scikit-Learn</span>
-                                <span class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded-full">NLP</span>
-                                <span class="bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-full">NeatText</span>
-                                <span class="bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Seaborn</span>
-                                <span class="bg-cyan-600 text-white text-xs font-semibold px-2 py-1 rounded-full">TextBlob</span>
-                                <span class="bg-pink-600 text-white text-xs font-semibold px-2 py-1 rounded-full">TF-IDF</span>
+                                <span
+                                    class="bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Python</span>
+                                <span
+                                    class="bg-pink-600 text-white text-xs font-semibold px-2 py-1 rounded-full">SQLite</span>
+                                <span
+                                    class="bg-teal-600 text-white text-xs font-semibold px-2 py-1 rounded-full">unittest</span>
+                                <span
+                                    class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Git</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <a href="https://github.com/rudradeb1947/Emotion-Detection-Model" target="_blank" class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                <a href="https://github.com/rudradeb1947/Personal_Finance_App" target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
                                     <i class="fas fa-external-link-alt mr-2 text-sm"></i> Live Demo
                                 </a>
-                                <a href="https://github.com/rudradeb1947/Emotion-Detection-Model" target="_blank" class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                <a href="https://github.com/rudradeb1947/Personal_Finance_App" target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
                                     <i class="fab fa-github mr-2 text-sm"></i> GitHub
                                 </a>
                             </div>
-                        
+                        </div>
+                        <div class="project">
+                            <h3 class="text-3xl  mb-3"></h3>
+                            <p class="text-gray-200 text-lg mb-4"></p>
+                            <div class="project-links flex space-x-6">
+
+                            </div>
+                        </div>
                     </div>
 
+                    <div
+                        class="bg-[#0d1117] rounded-lg shadow-xl overflow-hidden transition-all duration-300 group relative project-card">
+                        <img src="Emotion detection model.png" alt="Project 3"
+                            class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6 relative z-10">
+                            <h3 class="text-2xl font-bold mb-2 text-white">Emotion Detection Model</h3>
+                            <p class="text-gray-300 mb-4 text-sm">Built an NLP-based text classification model using
+                                TF-IDF and Logistic Regression for emotion prediction from textual data. Applied text
+                                analytics techniques for preprocessing and deployed a local demo with real-time user
+                                input, without external APIs.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="bg-indigo-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Python</span>
+                                <span
+                                    class="bg-yellow-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Scikit-Learn</span>
+                                <span
+                                    class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded-full">NLP</span>
+                                <span
+                                    class="bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-full">NeatText</span>
+                                <span
+                                    class="bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded-full">Seaborn</span>
+                                <span
+                                    class="bg-cyan-600 text-white text-xs font-semibold px-2 py-1 rounded-full">TextBlob</span>
+                                <span
+                                    class="bg-pink-600 text-white text-xs font-semibold px-2 py-1 rounded-full">TF-IDF</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="https://github.com/rudradeb1947/Emotion-Detection-Model" target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-2 text-sm"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/rudradeb1947/Emotion-Detection-Model" target="_blank"
+                                    class="text-[#22d3ee] hover:underline hover:text-[#0ea5e9] transition-colors duration-200 flex items-center">
+                                    <i class="fab fa-github mr-2 text-sm"></i> GitHub
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
-            </div>
         </section>
 
         <section id="contact" class="py-20 md:py-32 bg-[#0d1117] scroll-reveal">
@@ -468,24 +686,32 @@
                 <h2 class="text-5xl md:text-6xl font-bold text-center mb-12 text-white">Get in Touch</h2>
                 <div class="max-w-xl mx-auto">
                     <p class="text-center text-lg text-gray-300 mb-8">
-                        I'm currently open to new opportunities and exciting collaborations. Whether you have a project in mind, a question, or just want to say hi, feel free to reach out!
+                        I'm currently open to new opportunities and exciting collaborations. Whether you have a project
+                        in mind, a question, or just want to say hi, feel free to reach out!
                     </p>
                     <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
                         <input type="hidden" name="access_key" value="53f9eb82-2f8a-4873-8fa2-20dec9688c59">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder=" " class="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all duration-200 peer" required>
+                            <input type="text" id="name" name="name" placeholder=" "
+                                class="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all duration-200 peer"
+                                required>
                             <label for="name">Your Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder=" " class="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all duration-200 peer" required>
+                            <input type="email" id="email" name="email" placeholder=" "
+                                class="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all duration-200 peer"
+                                required>
                             <label for="email">Your Email</label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="5" placeholder=" " class="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all duration-200 peer" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder=" "
+                                class="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all duration-200 peer"
+                                required></textarea>
                             <label for="message">Your Message</label>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="px-8 py-3 btn-primary text-gray-900 font-semibold text-lg rounded-full shadow-xl">
+                            <button type="submit"
+                                class="px-8 py-3 btn-primary text-gray-900 font-semibold text-lg rounded-full shadow-xl">
                                 Send Message <i class="fas fa-paper-plane ml-2"></i>
                             </button>
                         </div>
@@ -499,10 +725,19 @@
         <div class="container mx-auto px-6">
             <p>&copy; 2025 Rudradeb Nandi. All rights reserved.</p>
             <div class="mt-4 space-x-4">
-                <a href="https://www.linkedin.com/in/rudradebnandi1947/" target="_blank" class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i class="fab fa-linkedin-in text-xl social-icon"></i></a>
-                <a href="https://github.com/rudradeb1947" target="_blank" class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i class="fab fa-github text-xl social-icon"></i></a>
-                <a href="https://x.com/nandi_rudradeb" target="_blank" class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i class="fab fa-twitter text-xl social-icon"></i></a>
-                <a href="mailto:rudradebnandi490@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Rudradeb" target="_blank" class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i class="fas fa-envelope text-xl social-icon"></i></a>
+                <a href="https://www.linkedin.com/in/rudradebnandi1947/" target="_blank"
+                    class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i
+                        class="fab fa-linkedin-in text-xl social-icon"></i></a>
+                <a href="https://github.com/rudradeb1947" target="_blank"
+                    class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i
+                        class="fab fa-github text-xl social-icon"></i></a>
+                <a href="https://x.com/nandi_rudradeb" target="_blank"
+                    class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i
+                        class="fab fa-twitter text-xl social-icon"></i></a>
+                <a href="mailto:rudradebnandi490@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Rudradeb"
+                    target="_blank"
+                    class="text-gray-400 hover:text-[#22d3ee] transition-colors duration-300 social-icon-wrapper"><i
+                        class="fas fa-envelope text-xl social-icon"></i></a>
             </div>
         </div>
     </footer>
@@ -537,7 +772,7 @@
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
-                    
+
                     if (targetSection) {
                         const headerOffset = mainHeader.offsetHeight; // Get dynamic header height
                         const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
@@ -553,7 +788,7 @@
 
             // Typing Animation Effect
             const typewriterText = document.getElementById('typewriter-text');
-            const phrases = ["Software Engineer",  "Machine Learning Enthusiast","Python Developer", "Problem Solver", "Creative Coder", "Backend Developer"];
+            const phrases = ["Software Engineer", "Machine Learning Enthusiast", "Python Developer", "Problem Solver", "Creative Coder", "Backend Developer"];
             let phraseIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
@@ -654,7 +889,7 @@
                     // Moves up/down slightly as the user scrolls
                     const scrollPosition = window.pageYOffset;
                     const imageOffset = (scrollPosition - (rect.top + scrollPosition)) * speed;
-                    
+
                     // Limit movement to avoid image going out of bounds significantly
                     const maxOffset = height * 0.1; // Max 10% movement
                     const limitedOffset = Math.max(-maxOffset, Math.min(maxOffset, imageOffset));
@@ -667,4 +902,5 @@
         });
     </script>
 </body>
+
 </html>
